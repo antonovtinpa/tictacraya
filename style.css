@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Delius", cursive;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .raya {
@@ -55,6 +56,16 @@
   -webkit-tap-highlight-color: transparent;
   outline: none;
   touch-action: manipulation;
+}
+
+.box {
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+.box:focus {
+  outline: none;
 }
 
 .heart-bg {
