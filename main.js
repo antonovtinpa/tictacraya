@@ -49,7 +49,9 @@ boxes.forEach((box) => {
     selected.add(id);
     turn = !turn;
 
-    if (selected.size === 9) reset();
+    if (selected.size === 9) {
+      reset();
+    }
   });
 });
 
@@ -59,55 +61,48 @@ function checkWin(playerMoves) {
   );
 }
 
-let particlesInitialized = false;
 function launchParticles(type) {
   rain.classList.add("active");
 
   const imageSrc =
     type === "heart" ? "./assets/heartfill.png" : "./assets/starfill.png";
 
-  if (!particlesInitialized) {
-    particlesInitialized = true;
+  const oldCanvas = rain.querySelector("canvas");
+  if (oldCanvas) oldCanvas.remove();
 
-    particlesJS("rain", {
-      particles: {
-        number: { value: 40 },
-        shape: {
-          type: "image",
-          image: {
-            src: imageSrc,
-            width: 100,
-            height: 100,
-          },
-        },
-        size: { value: 60 },
-        move: {
-          direction: "bottom",
-          out_mode: "out",
-          speed: 2,
-        },
-        opacity: {
-          value: 1,
-          anim: { enable: true, speed: 1, opacity_min: 0, sync: false },
+  particlesJS("rain", {
+    particles: {
+      number: { value: 40 },
+      shape: {
+        type: "image",
+        image: {
+          src: imageSrc,
+          width: 100,
+          height: 100,
         },
       },
-      interactivity: {
-        detect_on: "canvas",
-        events: { onhover: { enable: false } },
+      size: { value: 60 },
+      move: {
+        direction: "bottom",
+        out_mode: "out",
+        speed: 2,
       },
-      retina_detect: true,
-    });
-
-    setTimeout(() => {
-      particlesInitialized = false;
-    }, 2000);
-  }
+      opacity: {
+        value: 1,
+        anim: { enable: true, speed: 1, opacity_min: 0, sync: false },
+      },
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: { onhover: { enable: false } },
+    },
+    retina_detect: true,
+  });
 }
 
 function reset() {
   turn = true;
   winner = false;
-  particlesInitialized = false;
 
   boxes.forEach((box) => {
     box.classList.remove("heart-bg", "star-bg");
@@ -118,4 +113,9 @@ function reset() {
   stars.clear();
 
   rain.classList.remove("active");
+
+  setTimeout(() => {
+    const oldCanvas = rain.querySelector("canvas");
+    if (oldCanvas) oldCanvas.remove();
+  }, 500);
 }
