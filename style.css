@@ -55,11 +55,11 @@
 }
 
 .heart-bg {
-  background: url("/assets/heart.png");
+  background: url("./assets/heart.png");
 }
 
 .star-bg {
-  background: url("/assets/star.png");
+  background: url("./assets/star.png");
 }
 
 #rain {
