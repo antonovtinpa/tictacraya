@@ -70,33 +70,35 @@ function launchParticles(type) {
   const oldCanvas = rain.querySelector("canvas");
   if (oldCanvas) oldCanvas.remove();
 
-  particlesJS("rain", {
-    particles: {
-      number: { value: 40 },
-      shape: {
-        type: "image",
-        image: {
-          src: imageSrc,
-          width: 100,
-          height: 100,
+  requestAnimationFrame(() => {
+    particlesJS("rain", {
+      particles: {
+        number: { value: 40 },
+        shape: {
+          type: "image",
+          image: {
+            src: imageSrc,
+            width: 100,
+            height: 100,
+          },
+        },
+        size: { value: 60 },
+        move: {
+          direction: "bottom",
+          out_mode: "out",
+          speed: 2,
+        },
+        opacity: {
+          value: 1,
+          anim: { enable: true, speed: 1, opacity_min: 0, sync: false },
         },
       },
-      size: { value: 60 },
-      move: {
-        direction: "bottom",
-        out_mode: "out",
-        speed: 2,
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: false } },
       },
-      opacity: {
-        value: 1,
-        anim: { enable: true, speed: 1, opacity_min: 0, sync: false },
-      },
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: { onhover: { enable: false } },
-    },
-    retina_detect: true,
+      retina_detect: true,
+    });
   });
 }
 
