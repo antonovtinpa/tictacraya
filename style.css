@@ -1,0 +1,175 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Delius", cursive;
+}
+
+.raya {
+  position: relative;
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background-color: #9fa3f5;
+  z-index: 1;
+}
+
+.raya h1 {
+  font-size: 62px;
+  color: #3723ba;
+  z-index: 1;
+}
+
+.raya p {
+  font-size: 42px;
+  color: #3723ba;
+  z-index: 1;
+  text-align: center;
+}
+
+.tic {
+  height: 500px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+  border: 5px solid black;
+  padding: 15px;
+  border-radius: 50px;
+  z-index: 1;
+  background-color: #9fa3f5;
+}
+
+.tic div {
+  cursor: pointer;
+  border-radius: 50px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 5px solid black;
+  z-index: 1;
+}
+
+.heart-bg {
+  background: url("/assets/heart.png");
+}
+
+.star-bg {
+  background: url("/assets/star.png");
+}
+
+#rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+#rain.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+#stickers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sticker {
+  position: absolute;
+  width: 220px;
+  height: auto;
+  opacity: 1;
+}
+
+.bow {
+  top: 5%;
+  left: 10%;
+}
+
+.diamond {
+  top: 80%;
+  left: 1%;
+}
+
+.heartwings {
+  top: 18%;
+  right: 1%;
+}
+
+.icecream {
+  top: 50%;
+  left: -20px;
+}
+
+.rainbow {
+  top: 25%;
+  left: 5%;
+}
+
+.starbeam {
+  bottom: 10%;
+  left: 40%;
+}
+
+.unicorn {
+  top: 40%;
+  right: -25px;
+}
+
+.unicorn2 {
+  bottom: 1%;
+  right: 1%;
+}
+
+.unicornfat {
+  bottom: 1%;
+  left: 40%;
+}
+
+.unicornsit {
+  top: 1%;
+  left: 45%;
+}
+
+@media (max-width: 600px) {
+  .raya h1 {
+    font-size: 40px;
+  }
+
+  .raya p {
+    font-size: 28px;
+  }
+
+  .tic {
+    width: 320px;
+    height: 320px;
+    padding: 10px;
+    gap: 6px;
+    border-radius: 30px;
+  }
+
+  .tic div {
+    border-radius: 30px;
+  }
+
+  .sticker {
+    width: 90px;
+  }
+}
