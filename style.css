@@ -51,7 +51,10 @@
   background-repeat: no-repeat;
   background-size: contain;
   border: 5px solid black;
-  z-index: 1;
+
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  touch-action: manipulation;
 }
 
 .heart-bg {
